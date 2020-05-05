@@ -6,6 +6,7 @@ const request=require('request')
 const geocode=require('./utils/geocode')
 const forecast=require('./utils/forecast')
 
+const port=process.env.PORT || 3000
 //Define paths for Express config
 const viewspath=path.join(__dirname,'../templates/views')
 const publicDirectoryPath=path.join(__dirname, '../public')
@@ -22,15 +23,15 @@ app.use(express.static(publicDirectoryPath))
 
 app.get('',(req,res)=>{
     res.render('index',{
-        title:'weather app',
-        name:'andrew'
+        title:'Weather App',
+        name:'Ashi'
     })
 })
 
 app.get('/about',(req,res)=>{
     res.render('about',{
-        title:'about',
-        name:'andrew'
+        title:'About',
+        name:'Ashi'
     })
 })
 
@@ -38,7 +39,7 @@ app.get('/help',(req,res)=>{
     res.render('help',{
         title:'Help',
         message:'please contact for help',
-        name:'Andrew'
+        name:'Ashi'
     })
 })
 
@@ -89,7 +90,7 @@ app.get('/products', (req, res) => {
 app.get('/help/*',(req,res)=>{
     res.render('404',{
         title:'404',
-        name:'Anrew',
+        name:'Ashi',
         message:'Help Article not found'
     })
 })
@@ -97,10 +98,10 @@ app.get('/help/*',(req,res)=>{
 app.get('*',(req,res)=>{
     res.render('404',{
         title:'404',
-        name:'Andrew',
+        name:'Ashi',
         message:'404 page'
     })
 })
-app.listen(3000,()=>{
-    console.log('connected to port')
+app.listen(port,()=>{
+    console.log('connected to port'+port)
 })
